@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/09/2021 01:45:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Consulta" table="consulta" catalog="librarydb" optimistic-lock="version">
+        <id name="idConsulta" type="java.lang.Integer">
+            <column name="IdConsulta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empleado" class="Model.Empleado" fetch="select">
+            <column name="IdEmpleado" />
+        </many-to-one>
+        <many-to-one name="libro" class="Model.Libro" fetch="select">
+            <column name="IdLibro" />
+        </many-to-one>
+        <many-to-one name="visitante" class="Model.Visitante" fetch="select">
+            <column name="IdVisitante" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="Titulo" length="45" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10" />
+        </property>
+        <property name="hora" type="time">
+            <column name="Hora" length="8" />
+        </property>
+        <property name="devolucion" type="date">
+            <column name="Devolucion" length="10" />
+        </property>
+        <property name="seccion" type="string">
+            <column name="Seccion" length="45" />
+        </property>
+        <property name="generoLibro" type="string">
+            <column name="GeneroLibro" length="45" />
+        </property>
+        <property name="prestamo" type="string">
+            <column name="Prestamo" length="6" />
+        </property>
+        <property name="estadoDevolucion" type="string">
+            <column name="EstadoDevolucion" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

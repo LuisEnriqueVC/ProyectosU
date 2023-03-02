@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!-- SE CREAN REFERENCIAS CON EL NOMBRE DE BEAN-->
+                <prop key="index.htm">indexController</prop>
+                <prop key="altaBiblioteca.htm">bibliotecaBean</prop>
+                <prop key="listaBiblioteca.htm">bibliotecaBean</prop>
+                <prop key="editarBiblioteca.htm">bibliotecaBean</prop>
+                <prop key="eliminarBiblioteca.htm">bibliotecaBean</prop>
+                <prop key="GeneraQRBiblioteca.htm">bibliotecaBean</prop>
+                <prop key="QRVistaBiblioteca.htm">bibliotecaBean</prop>
+                <!--Empleado-->
+                <prop key="altaEmpleado.htm">empleadoBean</prop>
+                <prop key="listaEmpleado.htm">empleadoBean</prop>
+                <prop key="editarEmpleado.htm">empleadoBean</prop>
+                <prop key="eliminarEmpleado.htm">empleadoBean</prop>
+                <prop key="GeneraQREmpleado.htm">empleadoBean</prop>
+                <prop key="QRVistaEmpleado.htm">empleadoBean</prop>
+                
+                <prop key="altaVisitante.htm">visitanteBean</prop>
+                <prop key="listaVisitante.htm">visitanteBean</prop>
+                <prop key="editarVisitante.htm">visitanteBean</prop>
+                <prop key="eliminarVisitante.htm">visitanteBean</prop>
+                <prop key="GeneraQRVisitante.htm">visitanteBean</prop>
+                <prop key="QRVistaVisitante.htm">visitanteBean</prop>
+                
+                <prop key="altaLibro.htm">libroBean</prop>
+                <prop key="listaLibro.htm">libroBean</prop>
+                <prop key="editarLibro.htm">libroBean</prop>
+                <prop key="eliminarLibro.htm">libroBean</prop>
+                <prop key="GeneraQRLibro.htm">libroBean</prop>
+                <prop key="QRVistaLibro.htm">libroBean</prop>
+                <prop key="eliminarLibro.htm">libroBean</prop>
+                
+                <prop key="altaConsulta.htm">consultaBean</prop>
+                <prop key="listaConsulta.htm">consultaBean</prop>
+                <prop key="editarConsulta.htm">consultaBean</prop>
+                <prop key="eliminarConsulta.htm">consultaBean</prop>
+                <prop key="QRVistaConsulta.htm">consultaBean</prop>
+                <prop key="GeneraQRConsulta.htm">consultaBean</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+    <!--
+          SI HAY MAS CONTROLADORES, CREAR SU PROPIA BEAN Y HECER REFERENCIA ARRIBA
+          -->
+    <bean name="bibliotecaBean" class="controller.controladorBiblioteca"/>
+    <bean name="empleadoBean" class="controller.controladorEmpleado"/>
+    <bean name="visitanteBean" class="controller.controladorVisitante"/>
+    <bean name="libroBean" class="controller.controladorLibro"/>
+    <bean name="consultaBean" class="controller.controladorConsulta"/>
+    
+    
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+
+</beans>

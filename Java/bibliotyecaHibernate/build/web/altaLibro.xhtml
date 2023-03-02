@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      > 
+    <h:head>
+        <title>LIBROS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="css/estilos2.css"/>
+    </h:head>
+    
+    <h:body>
+        <h:form id="formInsertar">
+            <center>
+                <p:panelGrid columns="2"> 
+                <p:outputLabel id="boxes" value="Titulo del libro:"/>
+                <p:inputText value="#{libroBean.libro.titulo}"/>
+                <h:outputLabel value="Autor:"/>
+                <p:inputText value="#{libroBean.libro.autor}"/>
+                <p:outputLabel value="Editorial:"/>
+                <p:inputText value="#{libroBean.libro.editorial}"/>
+                <h:outputLabel value="Fecha de publicación"/>
+                <p:calendar value="#{libroBean.libro.fpublicacion}"/>
+                <h:outputLabel value="Tiempo de conservación:"/>
+                <p:inputText value="#{libroBean.libro.tiemConservacion}"/>
+                <p:outputLabel value="Genero:"/>
+                <p:inputText value="#{libroBean.libro.genero}"/>
+                <p:outputLabel value="Ejemplares:"/>
+                <p:inputText value="#{libroBean.libro.ejemplares}"/>
+                <p:outputLabel value="Sección del libro:"/>
+                <p:inputText value="#{libroBean.libro.seccion}"/>
+                <p:outputLabel value="Hora del Ingreso:"/>
+                <p:calendar timeOnly="true" pattern="HH:mm" value="#{libroBean.libro.horaIngreso}"/>
+                </p:panelGrid>
+                <p:growl id="growl" life="2000"/>
+                <p:commandButton actionListener="#{libroBean.insertar()}"
+                                 value="Agregar" update="growl"/>
+              </center>
+        </h:form>
+    </h:body>
+</html>
+

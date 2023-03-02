@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/09/2021 01:45:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Visitante" table="visitante" catalog="librarydb" optimistic-lock="version">
+        <id name="idVisitante" type="java.lang.Integer">
+            <column name="IdVisitante" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" />
+        </property>
+        <property name="apellidoP" type="string">
+            <column name="ApellidoP" length="45" />
+        </property>
+        <property name="apellidoM" type="string">
+            <column name="ApellidoM" length="45" />
+        </property>
+        <property name="ocupacion" type="string">
+            <column name="Ocupacion" length="45" />
+        </property>
+        <property name="fechaVisita" type="date">
+            <column name="FechaVisita" length="10" />
+        </property>
+        <property name="horaEntrada" type="time">
+            <column name="HoraEntrada" length="8" />
+        </property>
+        <property name="horaSalida" type="time">
+            <column name="HoraSalida" length="8" />
+        </property>
+        <property name="motivoVisita" type="string">
+            <column name="MotivoVisita" length="45" />
+        </property>
+        <property name="numeroAfiliacion" type="string">
+            <column name="NumeroAfiliacion" length="45" />
+        </property>
+        <property name="telefono" type="java.lang.Long">
+            <column name="Telefono" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="Direccion" length="45" />
+        </property>
+        <set name="consultas" table="consulta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdVisitante" />
+            </key>
+            <one-to-many class="Model.Consulta" />
+        </set>
+    </class>
+</hibernate-mapping>

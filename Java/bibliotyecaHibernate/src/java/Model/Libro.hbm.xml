@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/09/2021 01:45:21 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Libro" table="libro" catalog="librarydb" optimistic-lock="version">
+        <id name="idLibro" type="java.lang.Integer">
+            <column name="IdLibro" />
+            <generator class="identity" />
+        </id>
+        <property name="titulo" type="string">
+            <column name="Titulo" length="45" />
+        </property>
+        <property name="horaIngreso" type="time">
+            <column name="HoraIngreso" length="8" />
+        </property>
+        <property name="autor" type="string">
+            <column name="Autor" length="45" />
+        </property>
+        <property name="editorial" type="string">
+            <column name="Editorial" length="45" />
+        </property>
+        <property name="fpublicacion" type="date">
+            <column name="FPublicacion" length="10" />
+        </property>
+        <property name="tiemConservacion" type="java.lang.Integer">
+            <column name="TiemConservacion" />
+        </property>
+        <property name="genero" type="string">
+            <column name="Genero" length="45" />
+        </property>
+        <property name="ejemplares" type="java.lang.Integer">
+            <column name="Ejemplares" />
+        </property>
+        <property name="seccion" type="string">
+            <column name="Seccion" length="45" />
+        </property>
+        <set name="consultas" table="consulta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdLibro" />
+            </key>
+            <one-to-many class="Model.Consulta" />
+        </set>
+    </class>
+</hibernate-mapping>

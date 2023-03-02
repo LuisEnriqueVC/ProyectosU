@@ -1,0 +1,143 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(#6d597a, #e56b6f); /* Aqui se hace un difuminado del color de la pagina */
+}
+
+h1{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;/* Letras mayusculas */
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+h2{
+    color: white;
+    text-align: center;
+    text-transform: capitalize;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+ul{
+    list-style-type: none; 
+    /*Para quitar la animación a la lista*/
+    background-color: #e56b6f;
+    /*Color de fondo del menu de nav*/
+    overflow: hidden;
+    /*CSS overflow especifica: si recortar contenido, 
+    dibujar barras de desplazamiento o mostrar el contenido excedente en un elemento a nivel de bloque.*/
+    /*En este caso se muestra el contenido independientemente sin afectar a los demás elementos*/
+    margin: 0;
+    padding: 0;
+    /*Se anula el margin y el padding para que quedé lo más pegado a la cabecera y así no exista ningun problema a futuro*/
+}
+
+li{
+    float: left; 
+    /*Float CSS ubica un elemento al lado izquierdo o derecho de su contenedor, 
+    permitiendo a los elementos de texto y en línea aparecer a su costado.*/
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: #b56576;
+    color:#d4f2db;
+    text-shadow: white 0 -2px;
+}
+
+.marco{
+    width: 80%;
+    height: 420px;
+    border: 4px solid #304966;
+    margin-bottom: 20px;
+    margin-left: 120px;
+    align-items: center;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.boton{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #414833;
+    background-color: #b6ad90;
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 10px;
+}
+
+.boton:hover{
+    background-color:#936639;
+    color: white;
+}
+
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+  color:#4b4c4d;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
