@@ -6,10 +6,9 @@ Created on Sat Jul 30 14:59:22 2022
 @author: el-vak
 """
 
+#funciones en python
 
-
-#vamos a creae funciones en python
-
+#importar librerias
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,13 +17,13 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
+#cargando el set de datos
 fichero= '/home/el-vak/Documentos/datasets/train-data.csv'
 
-
+#inicio de funciones
 def cargaDatos(ruta, fichero,separador=','):  #escribir bien la ruta // y el nombre del dataset que quieres cargar
     datos = pd.read_csv(ruta+fichero,sep=separador)
     return datos
-
 
 def dameColumnas(datos):#si no encuentras las columnas es porque no hay
     return datos.columns
@@ -40,7 +39,6 @@ def renombrarcolumna(datos,cambio):
 def guardarDatos(datos,ruta,fichero):
     datos.to_csv(ruta+fichero)
     return True
-
 
 def remplazarNulos(columna):
     media = columna.mean()
@@ -59,8 +57,6 @@ def cambiaTipoDatoFloat(columna, tipo='float64'):#revisar
     #datos['potencia']= pd.to_numeric(datos['potencia'],errors = 'coerce'))
     columna = pd.to_numeric(columna,errors='coerce')
     return columna
-
-
 
 def normalizacionColumna(columna):#dependiendo los valores de dataset
    columna=columna/columna.max()
@@ -86,8 +82,7 @@ def agruparDatos(datos, columna):
     datos_agrupados= datos.groupby(columna,as_index=False)
     return datos_agrupados
 
-
-#visualizacion de datos
+#VISUALIZACIONES DE DATOS
 def graficaBoxPlot(columna, titulo=''):
     plt.boxplot(columna)
     plt.title(titulo)
@@ -128,9 +123,6 @@ def dimeEstadisticas(datos,tipo ='numerico'):
     else:
      return datos.describe(include='all')
  
-    
- 
-    
 def errorCuadratico(y_real,prediccion):
    ECM= metrics.mean_squared_error(y_real, prediccion)
    #print(ECM)
@@ -141,24 +133,24 @@ def rCuadrado(y_real,prediccion):
     return r_cuadrado
 
 #----------------------------PRUEBAS----------------------------------------------
-datos=cargaDatos('//home//el-vak//Descargas//','Data Science Jobs Salaries.csv')
+#datos=cargaDatos('//home//el-vak//Descargas//','Data Science Jobs Salaries.csv')
 #cargando datos en un dataframe pandas (pd)
-print(datos.head)#visualiza tus datos
-print(datos.dtypes)#visualiza tus columnas y sus tipos de dato que albergan
-print('*'*40)
+#print(datos.head)#visualiza tus datos
+#print(datos.dtypes)#visualiza tus columnas y sus tipos de dato que albergan
+#print('*'*40)
 #para ver las columnas y sus datos 
 #print(datos.work_year)
 #print(datos.experience_level)
 #print(datos.salary_currency,datos.company_size,datos.remote_ratio)
 #ya vistos los encabezados puedes cambiar el nombre de estos
-nuevosEncabezados = ['anio_laboral','nivel_experiencia', 'tipo_de_empleo',
-                     'puesto', 'salario', 'moneda_de_pago', 'salario_en_usd',
-                     'recidencia_del_empleado','proporcion_de_remitente',
-                     'localizacion_compania','tamanio_compania']
+#nuevosEncabezados = ['anio_laboral','nivel_experiencia', 'tipo_de_empleo',
+#                     'puesto', 'salario', 'moneda_de_pago', 'salario_en_usd',
+#                     'recidencia_del_empleado','proporcion_de_remitente',
+#                     'localizacion_compania','tamanio_compania']
 
-cambiaNombreColumnas(datos, nuevosEncabezados)
-print(datos.dtypes)
-datos.isnull().sum()#verifica que no existan nulos
+#cambiaNombreColumnas(datos, nuevosEncabezados)
+#print(datos.dtypes)
+#datos.isnull().sum()#verifica que no existan nulos
                     #encontrar codigo para encontrar espacios
                     #quitar espacios (youtube tutorial encontrado)
                     #si un valor no coincide con los otros
@@ -174,7 +166,7 @@ print(datos['nivel_experiencia'].duplicated())#datos duplicados
 #print (datos.duplicated(datos['nivel_experiencia']))
 #print(datos['nivel_experiencia'])
 
-datos.columns
+#datos.columns
 #print(datos)
 #type(datos)
 
