@@ -140,12 +140,7 @@ def rCuadrado(y_real,prediccion):
     #print(r_cuadrado)
     return r_cuadrado
 
-
-
-
-
-
-
+#----------------------------PRUEBAS----------------------------------------------
 datos=cargaDatos('//home//el-vak//Descargas//','Data Science Jobs Salaries.csv')
 #cargando datos en un dataframe pandas (pd)
 print(datos.head)#visualiza tus datos
@@ -179,20 +174,8 @@ print(datos['nivel_experiencia'].duplicated())#datos duplicados
 #print (datos.duplicated(datos['nivel_experiencia']))
 #print(datos['nivel_experiencia'])
 
-
-
-                    
-
-
 datos.columns
 #print(datos)
-
-
-
-
-
-
-
 #type(datos)
 
 # if __name__ == '__main__':
@@ -244,10 +227,6 @@ datos.columns
 #     print(y,prediccion)
     
 #     print(rCuadrado(y,prediccion))
-    
-
-
-
 
 #pruebas de nuevos codigos 2023-febrero
 #new_val = datos.duplicated(subset=datos.columns, keep='first')
